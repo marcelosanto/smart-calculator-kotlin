@@ -2,21 +2,31 @@ package calculator
 
 fun main() {
     while (true) {
-        val inputNumbers = readln()
-        val numbers = mutableListOf<Int>()
+        val inputCalculator = readln()
 
-        if (inputNumbers == "/exit") {
+        if (inputCalculator == "/help") {
+            println("The program calculates the sum of numbers")
+            continue
+        } else if (inputCalculator == "/exit") {
             println("Bye!")
             break
-        } else if (inputNumbers.isNullOrBlank()) continue
-        else {
-            inputNumbers.split(" ").map { numbers.add(it.toInt()) }
+        } else if (inputCalculator.isBlank()) {
+            continue
+        } else {
+            calculator(inputCalculator)
         }
+    }
 
-        if (numbers.size == 1) println(numbers[0])
-        else {
-            val (x, y) = numbers
-            println(x + y)
-        }
+
+}
+
+fun calculator(inputCalculator: String) {
+    val numbers = mutableListOf<Int>()
+
+    if (inputCalculator.length == 1) {
+        println(inputCalculator)
+    } else {
+        inputCalculator.split(" ").map { numbers.add(it.toInt()) }
+        println(numbers.sum())
     }
 }
