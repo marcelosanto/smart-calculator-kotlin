@@ -3,6 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Smart_Calculator.iml" filepath="$PROJECT_DIR$/.idea/modules/Smart_Calculator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Smart Calculator/task/Smart_Calculator.Smart_Calculator-task.iml" filepath="$PROJECT_DIR$/.idea/modules/Smart Calculator/task/Smart_Calculator.Smart_Calculator-task.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Smart Calculator/task/Smart_Calculator.Smart_Calculator-task.main.iml" filepath="$PROJECT_DIR$/.idea/modules/Smart Calculator/task/Smart_Calculator.Smart_Calculator-task.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Smart Calculator/task/Smart_Calculator.Smart_Calculator-task.test.iml" filepath="$PROJECT_DIR$/.idea/modules/Smart Calculator/task/Smart_Calculator.Smart_Calculator-task.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Topics/Debugging techniques/Assertion/Smart_Calculator.Topics-Debugging_techniques-Assertion.iml" filepath="$PROJECT_DIR$/.idea/modules/Topics/Debugging techniques/Assertion/Smart_Calculator.Topics-Debugging_techniques-Assertion.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Topics/Debugging techniques/Assertion/Smart_Calculator.Topics-Debugging_techniques-Assertion.main.iml" filepath="$PROJECT_DIR$/.idea/modules/Topics/Debugging techniques/Assertion/Smart_Calculator.Topics-Debugging_techniques-Assertion.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Topics/Debugging techniques/Assertion/Smart_Calculator.Topics-Debugging_techniques-Assertion.test.iml" filepath="$PROJECT_DIR$/.idea/modules/Topics/Debugging techniques/Assertion/Smart_Calculator.Topics-Debugging_techniques-Assertion.test.iml" />
