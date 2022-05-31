@@ -16,17 +16,54 @@ fun main() {
             calculator(inputCalculator)
         }
     }
-
-
 }
 
 fun calculator(inputCalculator: String) {
-    val numbers = mutableListOf<Int>()
-
-    if (inputCalculator.length == 1) {
+    val numbers = formatCalculator(inputCalculator)
+    if (numbers.size == 1) {
         println(inputCalculator)
     } else {
-        inputCalculator.split(" ").map { numbers.add(it.toInt()) }
         println(numbers.sum())
     }
+}
+
+private fun formatCalculator(
+    inputCalculator: String,
+): MutableList<Int> {
+    val sings = listOf("+", "-")
+    val formatNumbers = mutableListOf<String>()
+    val numbers = mutableListOf<Int>()
+
+    for (i in inputCalculator.split(" ").toMutableList()) {
+        if (i.isNotBlank()) {
+            if (i.length > 1) {
+                if (sings.contains(i[0].toString()) && sings.contains(i[1].toString())) {
+                    if (i[0].toString() == "-") {
+                        if (i.length % 2 == 0) formatNumbers.add("+")
+                        else formatNumbers.add("-")
+                    } else formatNumbers.add(i[0].toString())
+                } else formatNumbers.add(i)
+            } else formatNumbers.add(i)
+        }
+    }
+
+    var temp = ""
+    for (i in formatNumbers) {
+        temp = if (temp.isBlank() && sings.contains(i)) {
+            i
+        } else if (!sings.contains(i[0].toString())) {
+            numbers.add("$temp$i".toInt())
+            ""
+        } else {
+            if (i[0].toString() == "+" && temp == "+" || i[0].toString() == "-" && temp == "-") {
+                numbers.add("+${i.substring(1)}".toInt())
+                ""
+            } else {
+                numbers.add("-${i.substring(1)}".toInt())
+                ""
+            }
+        }
+    }
+
+    return numbers
 }
