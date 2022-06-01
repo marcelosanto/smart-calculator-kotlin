@@ -12,10 +12,27 @@ fun main() {
             break
         } else if (inputCalculator.isBlank()) {
             continue
+        } else if (inputCalculator.split(" ").size == 1 && !inputCalculator.contains("[0-9]\\+||\\d-".toRegex())) {
+            println(inputCalculator)
+            continue
+        } else if (inputCalculator.split(" ").size == 1 && inputCalculator.contains("-[\\d]|\\+[\\d]".toRegex())) {
+            println(inputCalculator.replace("\\+".toRegex(), ""))
+            continue
+        } else if (inputCalculator.split(" ").size == 1 && inputCalculator.contains("[\\d]-|[\\d]\\+".toRegex()) || inputCalculator.contains(
+                "^[a-zA-Z]+".toRegex()
+            )
+        ) {
+            println("Invalid expression")
+            continue
+        } else if (inputCalculator.contains("/[a-zA-Z]+".toRegex())) {
+            println("Unknown command")
         } else {
             calculator(inputCalculator)
         }
     }
+
+    //println("-123".contains("[\\d]-|[\\d]\\+".toRegex()))
+
 }
 
 fun calculator(inputCalculator: String) {
