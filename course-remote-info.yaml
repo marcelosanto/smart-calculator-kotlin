@@ -33,8 +33,6 @@ topics:
   0:
   - title: Binary numbers
     theory_id: 5544
-  - title: Hexadecimal numbers
-    theory_id: 8788
   - title: Write, compile, and run
     theory_id: 3739
   - title: JVM components
