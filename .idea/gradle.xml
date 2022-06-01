@@ -37,6 +37,12 @@
             <option value="$PROJECT_DIR$/Topics/If expression/The max of two numbers without else-branch" />
             <option value="$PROJECT_DIR$/Topics/If expression/Theory" />
             <option value="$PROJECT_DIR$/Topics/If expression/Triangle" />
+            <option value="$PROJECT_DIR$/Topics/Regexps/Backslash problem" />
+            <option value="$PROJECT_DIR$/Topics/Regexps/Creating regexes" />
+            <option value="$PROJECT_DIR$/Topics/Regexps/Different colo(u)rs" />
+            <option value="$PROJECT_DIR$/Topics/Regexps/Matching pattern" />
+            <option value="$PROJECT_DIR$/Topics/Regexps/Rings of Power" />
+            <option value="$PROJECT_DIR$/Topics/Regexps/Theory" />
             <option value="$PROJECT_DIR$/util" />
           </set>
         </option>
