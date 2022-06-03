@@ -1,6 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <bytecodeTargetLevel target="17" />
+    <bytecodeTargetLevel target="17">
+      <module name="Smart_Calculator.Smart_Calculator-task-build-classes-java.main" target="11" />
+      <module name="Smart_Calculator.Smart_Calculator-task-build-classes-kotlin.main" target="11" />
+      <module name="Smart_Calculator.Smart_Calculator-task-build-generated-sources-annotationProcessor-java.main" target="11" />
+      <module name="Smart_Calculator.Smart_Calculator-task-build-generated-sources-headers-java.main" target="11" />
+      <module name="Smart_Calculator.Smart_Calculator-task-build-reports-tests.main" target="11" />
+      <module name="Smart_Calculator.Smart_Calculator-task-build-test-results.main" target="11" />
+      <module name="Smart_Calculator.Smart_Calculator-task-build-tmp.main" target="11" />
+      <module name="Smart_Calculator.Smart_Calculator-task.main" target="11" />
+      <module name="Smart_Calculator.Topics-Debugging_techniques-Assertion.main" target="11" />
+      <module name="Smart_Calculator.Topics-Debugging_techniques-Find_the_error.main" target="11" />
+      <module name="Smart_Calculator.Topics-Debugging_techniques-Log_events.main" target="11" />
+      <module name="Smart_Calculator.Topics-Debugging_techniques-Proper_tools.main" target="11" />
+      <module name="Smart_Calculator.Topics-Debugging_techniques-Right_assertions.main" target="11" />
+      <module name="Smart_Calculator.Topics-Debugging_techniques-Theory.main" target="11" />
+      <module name="Smart_Calculator.Topics-If_expression-Check_a_number_is_positive.main" target="11" />
+      <module name="Smart_Calculator.Topics-If_expression-Find_the_output.main" target="11" />
+      <module name="Smart_Calculator.Topics-If_expression-Find_the_output__1_.main" target="11" />
+      <module name="Smart_Calculator.Topics-If_expression-Interval.main" target="11" />
+      <module name="Smart_Calculator.Topics-If_expression-Knights.main" target="11" />
+      <module name="Smart_Calculator.Topics-If_expression-Number_dividers.main" target="11" />
+      <module name="Smart_Calculator.Topics-If_expression-Odd_or_even.main" target="11" />
+      <module name="Smart_Calculator.Topics-If_expression-Statements_about_brackets_in_if.main" target="11" />
+      <module name="Smart_Calculator.Topics-If_expression-The_max_of_two_numbers_without_else-branch.main" target="11" />
+      <module name="Smart_Calculator.Topics-If_expression-Theory.main" target="11" />
+      <module name="Smart_Calculator.Topics-If_expression-Triangle.main" target="11" />
+      <module name="Smart_Calculator.Topics-Regexps-Backslash_problem.main" target="11" />
+      <module name="Smart_Calculator.Topics-Regexps-Creating_regexes.main" target="11" />
+      <module name="Smart_Calculator.Topics-Regexps-Different_colo_u_rs.main" target="11" />
+      <module name="Smart_Calculator.Topics-Regexps-Help_the_teacher.main" target="11" />
+      <module name="Smart_Calculator.Topics-Regexps-Matching_pattern.main" target="11" />
+      <module name="Smart_Calculator.Topics-Regexps-Rings_of_Power.main" target="11" />
+      <module name="Smart_Calculator.Topics-Regexps-Theory.main" target="11" />
+      <module name="Smart_Calculator.Topics-Regexps_in_use-Aaaaaaa_to_a.main" target="11" />
+      <module name="Smart_Calculator.Topics-Regexps_in_use-Find_the_difference.main" target="11" />
+      <module name="Smart_Calculator.Topics-Regexps_in_use-Limit.main" target="11" />
+      <module name="Smart_Calculator.Topics-Regexps_in_use-Multiple_items.main" target="11" />
+      <module name="Smart_Calculator.Topics-Regexps_in_use-Removing_chords.main" target="11" />
+      <module name="Smart_Calculator.Topics-Regexps_in_use-Sike,_that's_the_wrong_number.main" target="11" />
+      <module name="Smart_Calculator.Topics-Regexps_in_use-Splitting_with_spaces.main" target="11" />
+      <module name="Smart_Calculator.Topics-Regexps_in_use-Theory.main" target="11" />
+      <module name="Smart_Calculator.Topics-Regexps_in_use-Web_colors.main" target="11" />
+      <module name="Smart_Calculator.util.main" target="11" />
+    </bytecodeTargetLevel>
   </component>
 </project>

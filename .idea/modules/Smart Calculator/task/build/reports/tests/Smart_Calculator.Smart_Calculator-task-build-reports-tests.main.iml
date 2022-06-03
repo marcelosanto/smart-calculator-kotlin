@@ -43,7 +43,7 @@
       </configuration>
     </facet>
   </component>
-  <component name="NewModuleRootManager">
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_11">
     <output url="file://$MODULE_DIR$/../../../../../../../Smart Calculator/task/build/reports/tests/out/production/classes" />
     <exclude-output />
     <content url="file://$MODULE_DIR$/../../../../../../../Smart Calculator/task/build/reports/tests/src" />

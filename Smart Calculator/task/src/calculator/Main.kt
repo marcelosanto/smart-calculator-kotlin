@@ -1,57 +1,85 @@
 package calculator
 
 fun main() {
-    while (true) {
-        val inputCalculator = readln()
+    val regex =
+        Regex("[a-zA-Z]+\\s*?=\\s*?([a-zA-Z]+|\\d+)|[a-zA-Z]+|[a-zA-Z]+\\s*[+-]\\s*[a-zA-Z]+")
+    val listDeVariaveis = mutableMapOf<String, Int>()
 
-        if (inputCalculator == "/help") {
-            println("The program calculates the sum of numbers")
+
+    while (true) {
+        val str = readln().trimEnd()
+
+        if (str.isBlank()) {
             continue
-        } else if (inputCalculator == "/exit") {
-            println("Bye!")
-            break
-        } else if (inputCalculator.isBlank()) {
-            continue
-        } else if (inputCalculator.split(" ").size == 1 && !inputCalculator.contains("[0-9]\\+||\\d-".toRegex())) {
-            println(inputCalculator)
-            continue
-        } else if (inputCalculator.split(" ").size == 1 && inputCalculator.contains("-[\\d]|\\+[\\d]".toRegex())) {
-            println(inputCalculator.replace("\\+".toRegex(), ""))
-            continue
-        } else if (inputCalculator.split(" ").size == 1 && inputCalculator.contains("[\\d]-|[\\d]\\+".toRegex()) || inputCalculator.contains(
-                "^[a-zA-Z]+".toRegex()
-            )
-        ) {
-            println("Invalid expression")
-            continue
-        } else if (inputCalculator.contains("/[a-zA-Z]+".toRegex())) {
-            println("Unknown command")
+        } else if (str.matches("(([a-zA-Z]*|\\d*)\\s*[+-]?\\s*?){2,}".toRegex())) {
+            val calcTemp =
+                str.replace("(\\+{2,}|^-^{2})".toRegex(), " + ").replace("-{3}".toRegex(), " - ").split(" ")
+                    .toMutableList()
+            val listCalc = checarValor(calcTemp, listDeVariaveis)
+
+            if (listCalc != null) println(formatCalculator(listCalc).sum()) else continue
+
+        } else if (regex.matches(str) && !str.matches("/[a-z]+".toRegex())) {
+            if (str.matches("[a-zA-Z]+".toRegex()) && listDeVariaveis.containsKey(str)) {
+                println(listDeVariaveis[str])
+            } else if (str.matches("[a-zA-Z]+".toRegex()) && !listDeVariaveis.containsKey(str)) {
+                println("Unknown variable")
+            } else {
+                val (x, y) = str.replace("\\s*".toRegex(), "").replace("=", " ").split(" ").toMutableList()
+                if (y.matches("[a-zA-Z]+".toRegex()) && listDeVariaveis.containsKey(y)) {
+                    listDeVariaveis[x] = listDeVariaveis[y]!!.toInt()
+                } else if (y.matches("[a-zA-Z]+".toRegex()) && !listDeVariaveis.containsKey(y)) {
+                    println("Unknown variable")
+                } else listDeVariaveis[x] = y.toInt()
+            }
+        } else if (str.matches("/[a-z]+".toRegex())) {
+            when (str) {
+                "/exit" -> {
+                    println("bye")
+                    break
+                }
+                "/help" -> {
+                    println("The program calculates the sum of numbers")
+                    continue
+                }
+                else -> {
+                    println("Unknown command")
+                    continue
+                }
+            }
         } else {
-            calculator(inputCalculator)
+            println("Invalid assignment")
         }
     }
 
-    //println("-123".contains("[\\d]-|[\\d]\\+".toRegex()))
 
 }
 
-fun calculator(inputCalculator: String) {
-    val numbers = formatCalculator(inputCalculator)
-    if (numbers.size == 1) {
-        println(inputCalculator)
-    } else {
-        println(numbers.sum())
+fun checarValor(calcTemp: MutableList<String>, listDeVariaveis: MutableMap<String, Int>): MutableList<String>? {
+    val calcValue = mutableListOf<String>()
+
+    for (i in calcTemp) {
+        if (i.matches("[a-zA-Z]+".toRegex())) {
+            if (listDeVariaveis.containsKey(i)) {
+                calcValue.add(listDeVariaveis[i].toString())
+            } else {
+                println("Unknown variable")
+                return null
+            }
+        } else calcValue.add(i)
     }
+
+    return calcValue
 }
 
 private fun formatCalculator(
-    inputCalculator: String,
+    inputCalculator: MutableList<String>,
 ): MutableList<Int> {
     val sings = listOf("+", "-")
     val formatNumbers = mutableListOf<String>()
     val numbers = mutableListOf<Int>()
 
-    for (i in inputCalculator.split(" ").toMutableList()) {
+    for (i in inputCalculator) {
         if (i.isNotBlank()) {
             if (i.length > 1) {
                 if (sings.contains(i[0].toString()) && sings.contains(i[1].toString())) {
