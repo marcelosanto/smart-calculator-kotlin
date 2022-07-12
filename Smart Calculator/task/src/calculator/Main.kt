@@ -1,8 +1,10 @@
 package calculator
 
+import java.math.BigInteger
+
 fun main() {
     val letras = Regex("[a-zA-Z]+")
-    val listDeVariaveis = mutableMapOf<String, Int>()
+    val listDeVariaveis = mutableMapOf<String, BigInteger>()
 
     while (true) {
         val str = readln().trimEnd()
@@ -23,8 +25,8 @@ fun main() {
                 if (listDeVariaveis[y] == null && "[a-zA-Z]".toRegex().find(y)?.value != null) {
                     println("Unknown variable")
                 } else if (listDeVariaveis[y] != null) {
-                    listDeVariaveis[x] = listDeVariaveis[y]!!.toInt()
-                } else listDeVariaveis[x] = y.toInt()
+                    listDeVariaveis[x] = listDeVariaveis[y]!!
+                } else listDeVariaveis[x] = y.toBigInteger()
             } else {
                 val regex = Regex("[a-zA-z]+")
                 val matches = regex.findAll(str)
@@ -108,7 +110,7 @@ fun calculatorFunction(str: String): String {
 }
 
 fun calcNumbers(numbers: String): String {
-    var calcTemp: Int
+    var calcTemp: BigInteger
     var result: String
 
     val regexMulti = Regex("-?\\d+\\s*\\*\\s*\\d+")
@@ -116,10 +118,11 @@ fun calcNumbers(numbers: String): String {
     val regexElev = Regex("-?\\d+\\s*\\^\\s*\\d+")
 
 
-    val calculator: (Int, Int, String) -> Int = function()
+    val calculator: (BigInteger, BigInteger, String) -> BigInteger = function()
 
     if (regexElev.find(numbers)?.value != null) {
-        val (x, y) = regexElev.find(numbers)?.value?.replace("\\s*".toRegex(), "")?.split("^")!!.map { it.toInt() }
+        val (x, y) = regexElev.find(numbers)?.value?.replace("\\s*".toRegex(), "")?.split("^")!!
+            .map { it.toBigInteger() }
         val temp = regexElev.find(numbers)?.value
         result = numbers.replace(temp!!, calcPow(x, y).toString())
 
@@ -129,7 +132,7 @@ fun calcNumbers(numbers: String): String {
 
         val temp = regexMulti.find(numbers)?.value
 
-        calcTemp = teste?.let { calculator(teste[0].toInt(), teste[2].toInt(), teste[1]) }!!
+        calcTemp = teste?.let { calculator(teste[0].toBigInteger(), teste[2].toBigInteger(), teste[1]) }!!
         result = numbers.replace(temp!!, calcTemp.toString())
 
 
@@ -138,40 +141,41 @@ fun calcNumbers(numbers: String): String {
             ?.toMutableList()
         val temp = regexDiv.find(numbers)?.value
 
-        calcTemp = teste?.let { calculator(teste[0].toInt(), teste[2].toInt(), teste[1]) }!!
+        calcTemp = teste?.let { calculator(teste[0].toBigInteger(), teste[2].toBigInteger(), teste[1]) }!!
         result = numbers.replace(temp!!, calcTemp.toString())
     } else {
-        val listInt = mutableListOf<Int>()
+        val listInt = mutableListOf<BigInteger>()
 
         numbers.replace("\\s+".toRegex(), "").replace("(-\\+|\\+-)".toRegex(), "-").replace("-", ",-")
             .replace("+", ",+").replace("^,".toRegex(), "")
-            .split(",").map { listInt.add(it.toInt()) }
+            .split(",").map { listInt.add(it.toBigInteger()) }
 
-        result = listInt.sum().toString()
+        result = listInt.sumOf { it }.toString()
     }
     return result
 }
 
-fun calcPow(x: Int, y: Int): Int {
+fun calcPow(x: BigInteger, y: BigInteger): BigInteger {
     //valor x elevado
-    var h = 1
+    var h = "1".toBigInteger()
 
-    for (i in 1..y) {
+    for (i in 1..y.toInt()) {
         h *= x
     }
 
     return h
 }
 
-private fun function(): (Int, Int, String) -> Int {
-    val calculator: (Int, Int, String) -> Int = { number01: Int, number02: Int, operation: String ->
+private fun function(): (BigInteger, BigInteger, String) -> BigInteger {
+    val calculator: (BigInteger, BigInteger, String) -> BigInteger =
+        { number01: BigInteger, number02: BigInteger, operation: String ->
 
-        when (operation) {
-            "*" -> number01 * number02
-            "/" -> number01 / number02
-            else -> 0
+            when (operation) {
+                "*" -> number01 * number02
+                "/" -> number01 / number02
+                else -> "0".toBigInteger()
+            }
         }
-    }
     return calculator
 }
 
