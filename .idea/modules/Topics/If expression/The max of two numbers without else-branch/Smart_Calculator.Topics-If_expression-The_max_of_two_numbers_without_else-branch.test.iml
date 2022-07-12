@@ -33,6 +33,7 @@
               </args>
             </stringArg>
             <stringArg name="destination" arg="$MODULE_DIR$/../../../../../Topics/If expression/The max of two numbers without else-branch/build/classes/kotlin/test" />
+            <stringArg name="jvmTarget" arg="1.8" />
             <stringArg name="moduleName" arg="Topics-If_expression-The_max_of_two_numbers_without_else-branch" />
             <stringArg name="apiVersion" arg="1.6" />
             <stringArg name="languageVersion" arg="1.6" />
